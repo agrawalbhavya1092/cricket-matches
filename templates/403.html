@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Access Denied" %}{% endblock %}
+
+{% block content %}
+<div class="container theme-showcase" role="main" style="font-family: arial;min-height: 65%;">
+
+<div class="row" style="margin-top: 1rem">
+	<div class="col-md-12">
+		<h1>{% trans 'Oups' %}</h1>
+	</div>
+</div>
+<div class="row" style="margin-top: 3rem">
+	<div class="col-md-12">
+		<h1>{% trans "It appears you do not have the access." %}</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2">
+		<button class="btn btn-secondary type="button" id="Previous Page">{% trans 'Previous Page' %}</button>
+	</div>
+
+	<div class="col-md-3">
+		<button class="btn btn-primary" type="button" id="Homepage">{% trans 'Homepage' %}</button>
+	</div>
+</div>
+<div class="row" style="margin-top: 4rem">
+	<div class="col-md-12">
+		<h3>{% trans 'If the problem persists, please ' %}<a href="" style="color: #f16e00;text-decoration: underline;">
+			{% trans 'contact us on Plazza' %}
+		</a>
+	</h3>
+	</div>
+</div>
+</div>
+{% endblock %}

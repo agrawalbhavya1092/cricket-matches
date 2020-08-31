@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+
+<div class="container" role="main" style="font-family: arial;">
+
+<div class="row">
+  <div class="col-md-9">
+    
+    <h1 style="font-size: 40px;margin-top: 2rem">{{slug}}</h1>
+  </div>
+</div> 
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" ><p> </p></th>
+      <th scope="col"><p>{% trans 'First Name' %}</p></th>
+      <th scope="col"><p>{% trans 'Last Name' %}</p></th>
+      <th scope="col"><p>{% trans 'Matches Played' %}</p></th>
+      <th scope="col"><p>{% trans 'Highest Scores' %}</p></th>
+      <th scope="col"><p>{% trans 'Country' %}</p></th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for l in object_list %}
+    <tr>
+      <td style="text-align: left;padding-left: 0rem"><a href=""><img src="{{l.image_uri}}" width="48px" height="48px" style="border: 2px solid black"> </a></td>
+      <td>{{l.firstname}}</td>
+      <td>{{l.lastname}}</td>
+      <td>{{l.player_history.matches}}</td>
+      <td>{{l.player_history.highest_scores}}</td>
+      <td>{{l.country}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</div>
+{% endblock  %}

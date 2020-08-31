@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+
+<div class="container" role="main" style="font-family: arial;">
+
+<div class="row">
+  <div class="col-md-9">
+    
+    <h1 style="font-size: 40px;margin-top: 2rem">Matches</h1>
+  </div>
+</div> 
+    <div class="row" style="margin-top: 1rem">
+    <div class="col-md-2">
+      <a href="{% url 'schedule-match' %}" class="btn btn-warning" style="font-size: 20px;margin-left: 0px;padding: 8px 20px" >
+          <i class="glyphicon glyphicon-plus" data-toggle="tooltip" data-placement="top" title="Schedule Match" style="margin-right: 20px"></i>
+          Schedule Match</a>
+    </div>
+  </div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" ><p> </p></th>
+      <th scope="col"><p>{% trans 'Match' %}</p></th>
+      <th scope="col"><p>{% trans 'Schedule Date' %}</p></th>
+      <th scope="col"><p>{% trans 'Winner' %}</p></th>
+      <th scope="col"><p>{% trans 'Match Status' %}</p></th>
+      <th scope="col"><p></p></th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for l in object_list %}
+    <tr>
+      <td style="text-align: left;padding-left: 0rem">{{forloop.counter}}</td>
+      <td><a href="{% url 'team-details' l.team1.slug %}"><img src="{{l.team1.logo_uri}}" width="48px" height="48px" style="border: 2px solid black">&nbsp;{{l.team1.name}} </a> &nbsp;&nbsp;<b>VS</b>&nbsp;&nbsp; <a href="{% url 'team-details' l.team2.slug %}"><img src="{{l.team2.logo_uri}}" width="48px" height="48px" style="border: 2px solid black">&nbsp;{{l.team2.name}} </a></td>
+      <td>{{l.schedule_date}}</td>
+      <td>{{l.winner_team.name}}</td>
+      <td>{{l.status}}</td>
+      <td><a href="{% url 'update-match' l.pk %}" class="btn btn-primary">Update</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</div>
+{% endblock  %}

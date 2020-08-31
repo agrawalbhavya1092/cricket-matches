@@ -1,0 +1,33 @@
+<script>
+    /**
+     * Navbar.html file 
+     * contrain all the information of the navbar pages
+     * AUTHOR :Rahul Koundal
+     */
+</script>
+
+{% load i18n %}
+{% load static %}
+
+
+<header role="banner">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container ">
+            <a class="navbar-brand" href="{% url 'team-list' %}"><img src="https://www.jagranimages.com/images/newimg/21082020/21_08_2020-ipl_logo_20650553.jpg" alt="Back to homepage" title="{% trans 'Back to homepage' %}" style="margin: 25px 25px 20px 0px;" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsing-navbar" aria-controls="collapsing-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="collapsing-navbar">
+                <ul class="navbar-nav" style="align-items: baseline;padding-bottom:1.1rem">
+                    <li class="nav-item"><a href="{% url 'team-list' %}" class="nav-link {% if 'team' in request.path %}active{% endif %}">Teams</a></li>
+                    <li class="nav-item"><a href="{% url 'matches-list' %}" class="nav-link {% if 'match' in request.path %}active{% endif %}">Match Fixtures</a></li>
+                    <li class="nav-item"><a href="{% url 'points-table' %}" class="nav-link {% if 'point' in request.path %}active{% endif %}">Points</a></li>
+                </ul>
+                  </div>
+                </div>
+       
+    </nav>
+
+
+
+</header>

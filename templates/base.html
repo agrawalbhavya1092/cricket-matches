@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/Small_Logo_RGB.png' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/autocomplete.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/input-tags.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/orangeHelvetica.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/docs.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/orangeIcons.css' %}">
+    <!-- Boosted CSS -->
+    <!-- <link rel="stylesheet" href="{% static '1.9.0/assets/css/bootstrap.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/boosted.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/thumbnail.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/loader.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-material-datetimepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-chosen.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap-glypicons.css' %}" />
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <title>Cricket</title>
+    <style type="text/css">
+        html,body { height: 100%; } 
+    </style>
+  </head>
+
+  <body style="padding-bottom: 0px">
+
+    <!-- Fixed navbar -->
+    {% include 'navbar.html' %}
+		{% block body %}
+		{% endblock %}
+
+		{% block content %}
+		{% endblock %}
+		{% block styles %}
+		{% endblock %}
+
+    {% include 'footer.html' %}
+    <script src="{% static 'js/highcharts.js' %}"></script>
+    <script src="{% static 'js/autocomplete.js' %}"></script>
+    <script src="{% static 'js/chosen.jquery.js' %}"></script>
+
+    {% block js %}
+
+    <!-- Jquery for autocomplete function -->
+    <!-- <script src="https://code.jquery.com/jquery-1.9.1.js"></script> -->
+    <!-- <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> -->
+    <script src="{% static 'js/boosted.js' %}"></script>
+    
+    {% endblock %}
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+        var headerH=$('.container ').height();
+        // console.log("header height",headerH)
+        var footerH=$('.o-footer').height();
+        // console.log("footer height",footerH)
+        var navTitleH=$('.navbar').height();
+        // console.log("navabr height",navTitleH)
+        var searchBoxH=-3;
+        var docH=$(document).height();
+        // console.log("document height",docH)
+        var searchH=docH +searchBoxH - (footerH+headerH+navTitleH);
+        // console.log("searchH",searchH)      
+        $(".asd").css('min-height',searchH); 
+});
+    </script>
+  </body>
+</html>
+
+

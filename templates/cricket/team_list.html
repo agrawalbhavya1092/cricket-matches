@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+
+<div class="container" role="main" style="font-family: arial;">
+
+<div class="row">
+  <div class="col-md-9">
+    
+    <h1 style="font-size: 40px;margin-top: 2rem">{% trans 'Teams' %}</h1>
+  </div>
+</div> 
+
+<table class="table" id="CM_User_Prfl_tbl">
+  <thead>
+    <tr>
+      <th scope="col" ><p> </p></th>
+      <th scope="col"><p>{% trans 'Name' %}</p></th>
+      <th scope="col"><p>{% trans 'Club State' %}</p></th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for l in object_list %}
+    <tr>
+      <td style="text-align: left;padding-left: 0rem"><a href="{% url 'team-details' l.slug %}"><img src="{{l.logo_uri}}" width="48px" height="48px" style="border: 2px solid black"> </a></td>
+      <td>{{l.name}}</td>
+      <td>{{l.club_state}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</div>
+{% endblock  %}

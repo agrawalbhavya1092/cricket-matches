@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Server Error" %}{% endblock %}
+
+{% block content %}
+<div class="container theme-showcase" role="main" style="font-family: arial;">
+
+<div class="row" style="margin-top: 2rem">
+	<div class="col-md-12">
+		<h1>{% trans 'Oups' %}</h1>
+	</div>
+</div>
+<div class="row" style="margin-top: 3rem">
+	<div class="col-md-12">
+		<h1>{% trans "It looks like the server didn't work properly." %}</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<button class="btn btn-primary" type="button" id="refresh" onclick="refresh()">{% trans 'Refresh' %}</button>
+	</div>
+</div>
+<div class="row" style="margin-top: 5rem">
+	<div class="col-md-12">
+		<h3>{% trans 'If the problem persists, please ' %}<a href="" style="color: #f16e00;text-decoration: underline;">
+			{% trans 'contact us on Plazza' %}
+		</a>
+	</h3>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	function refresh(){
+	    url = window.location.href
+		window.location.replace(url)
+	}
+</script>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Server Error" %}{% endblock %}
+
+{% block content %}
+<div class="container theme-showcase" role="main" style="font-family: arial;">
+
+<div class="row" style="margin-top: 2rem">
+	<div class="col-md-12">
+		<h1>{% trans 'Oups' %}</h1>
+	</div>
+</div>
+<div class="row" style="margin-top: 4rem">
+	<div class="col-md-12">
+		<h1>{% trans "This page doesn't exist. It may be deleted." %}</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2">
+		<a class="btn btn-secondary" href="{% if request.is_secure %}https://{% else %}http://{% endif %}{{request.META.HTTP_HOST}}{{ request.path|urlencode }}" id="Previous_Page">{% trans 'Previous Page' %}</a>
+	</div>
+
+	<div class="col-md-3">
+		<a class="btn btn-primary" href="{% url 'home' %}" id="Homepage">{% trans 'Homepage' %}</a>
+	</div>
+</div>
+<div class="row" style="margin-top: 5rem">
+	<div class="col-md-12">
+		<h3>{% trans 'If the problem persists, please ' %}<a href="" style="color: #f16e00;text-decoration: underline;">
+			{% trans 'contact us on Plazza' %}
+		</a>
+	</h3>
+	</div>
+</div>
+  <div class="row">
+          
+        <div class="col-md-12">
+        <label for="id_description">{% trans 'Details' %}</label> 
+        <div class="jumbotron" style="border: 2px solid #999;max-height: 100px;padding: 2rem">
+        	<div class="row">
+        		<div class="col-md-12">
+        		<b>Error:</b>&nbsp; 404 error
+        		</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-12">
+        		<b>URL:</b>&nbsp; {% if request.is_secure %}https://{% else %}http://{% endif %}{{request.META.HTTP_HOST}}{{request.get_full_path}}
+        	</div>
+        	</div>
+        	<div class="row" style="margin-bottom: 2rem">
+        		<div class="col-md-12">
+        		<b>CUID:</b>&nbsp; {{request.user.emp_id}}
+        		
+        	</div>
+        	</div>
+        </div>
+<!--         <textarea name="description" class="form-control" cols="40" rows="4" id="id_description">
+        	<b>Error</b>
+        	Url
+            CUID</textarea> -->
+        <input type="text" name="template" id="template" style="display: none;">
+        </div>
+
+        </div>
+</div>
+{% endblock %}
